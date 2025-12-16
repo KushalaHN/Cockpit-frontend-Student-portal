@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { HeaderLogo } from "../../pages/Home/ImagesRender";
 
 import { DayCalculation } from "../../Helper/DayCalculation/Daycalculation";
 
@@ -54,10 +53,8 @@ function Header() {
   }, []);
 
   const navItems = [
-    { text: "Home", path: "/" },
     { text: "Training", path: "/training" },
     { text: "Test", path: "/test" },
-    { text: "Pricing", path: "/pricing" },
   ];
 
   const drawerContent = (
@@ -143,17 +140,6 @@ function Header() {
         justifyContent="space-between"
         sx={{ maxWidth: "xl", mx: "auto", px: 2 }}
       >
-        {/* Logo */}
-        <Grid>
-          <Box
-            component={Link}
-            to="/"
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            <img src={HeaderLogo} alt="Plane" style={{ height: "60px" }} />
-          </Box>
-        </Grid>
-
         {/* Desktop Nav */}
         {!isMobile && (
           <>

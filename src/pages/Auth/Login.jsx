@@ -1,14 +1,9 @@
 import { apiPost } from "../../api/axios";
 import { CustomButton } from "../../components";
 import { snackbarEmitter } from "../../components/snackbar/CustomSnackBar";
-import CopyrightFooter from "../../Helper/copyrighttext";
+
 import { Link } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
-import {
-  HeaderLogo,
-  AppleLoginLogo,
-  GoogleLoginLogo,
-} from "../Home/ImagesRender";
 
 const Login = () => {
   const [activeForm, setActiveForm] = useState("login");
@@ -169,7 +164,7 @@ const Login = () => {
         : "",
     };
     localStorage.setItem("user", JSON.stringify(userdata));
-    navigate("/");
+    navigate("/training");
   };
   return (
     <Box
@@ -186,37 +181,6 @@ const Login = () => {
       }}
     >
       <Box
-        component={Link}
-        to="/"
-        sx={{
-          position: "fixed",
-          top: { xs: 10, sm: 10 },
-          left: {
-            xs: "50%", // Center horizontally on small screens
-            sm: "20px", // Align to left on larger screens
-            md: "20px",
-          },
-          transform: {
-            xs: "translateX(-50%)", // Center adjustment for xs
-            sm: "none",
-          },
-        }}
-      >
-        <Box
-          component="img"
-          src={HeaderLogo}
-          alt="Plane"
-          sx={{
-            height: 100,
-            mb: {
-              xs: 15,
-              sm: 0,
-            },
-          }}
-        />
-      </Box>
-
-      <Box
         sx={{
           backgroundColor: "rgba(0, 0, 0, 0.19)",
           backdropFilter: "blur(10px)",
@@ -230,7 +194,7 @@ const Login = () => {
         }}
       >
         <Typography variant="h6" align="center" gutterBottom>
-          Welcome to COCKPIT..!
+          Welcome..!
         </Typography>
         <Box
           sx={{
@@ -238,9 +202,11 @@ const Login = () => {
             backgroundColor: "#0f2c4c",
             borderRadius: "999px",
             p: "5px",
-            width: "100%",
+            width: "70%",
             justifyContent: "center",
+            alignItems: "center",
             mb: 2,
+            mx: "auto",
           }}
         >
           <Button
@@ -265,29 +231,6 @@ const Login = () => {
             }}
           >
             Login
-          </Button>
-          <Button
-            onClick={() => {
-              setActiveForm("register");
-              setErrors({});
-              setEmail("");
-              setUsername("");
-              setPassword("");
-            }}
-            size="small"
-            sx={{
-              flex: 1,
-              borderRadius: "999px",
-              px: 2,
-              py: 1,
-              color: activeForm === "register" ? "#000" : "#fff",
-              backgroundColor:
-                activeForm === "register" ? "#EAB308" : "transparent",
-              fontWeight: 500,
-              textTransform: "none",
-            }}
-          >
-            Register
           </Button>
         </Box>
 
@@ -318,7 +261,7 @@ const Login = () => {
             }}
           />
 
-          {activeForm === "register" && (
+          {/* {activeForm === "register" && (
             <>
               <Typography variant="body2" color="white" mt={2} mb={0}>
                 User Name
@@ -337,7 +280,7 @@ const Login = () => {
                 }}
               />
             </>
-          )}
+          )} */}
 
           <Typography variant="body2" color="white" mt={2} mb={0}>
             {activeForm === "login" ? "Access Key" : "Password"}
@@ -401,71 +344,10 @@ const Login = () => {
             bgColor="#EAB308"
             borderRadius="50px"
           >
-            {activeForm === "login" ? "Board me" : "Register"}
+            Board me
           </CustomButton>
         </form>
-
-        {activeForm === "login" && (
-          <>
-            <Typography variant="body2" align="center" color="white" my={2}>
-              - OR -
-            </Typography>
-
-            <Grid container justifyContent="center" spacing={8}>
-              {["google"].map((provider) => (
-                <Grid key={provider}>
-                  <Box
-                    src={
-                      provider === "apple" ? AppleLoginLogo : GoogleLoginLogo
-                    }
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      backgroundColor: "#fff",
-                      borderRadius: "60px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                      boxShadow: 1,
-                    }}
-                    onClick={() => {
-                      if (provider === "google") {
-                        Googlelogin();
-                      }
-                    }}
-                  >
-                    <img
-                      src={
-                        provider === "apple" ? AppleLoginLogo : GoogleLoginLogo
-                      }
-                      alt="apple"
-                      style={{ width: 80, height: 80 }}
-                    />
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-          </>
-        )}
       </Box>
-
-      {/* Footer Typography OUTSIDE the card */}
-      <Typography
-        variant="caption"
-        align="center"
-        sx={{
-          position: "absolute",
-          bottom: 10,
-          left: 5,
-          width: "100%",
-          color: "white",
-          textAlign: "center",
-          zIndex: 1,
-        }}
-      >
-        <CopyrightFooter />
-      </Typography>
     </Box>
   );
 };

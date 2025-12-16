@@ -1,9 +1,8 @@
 import { apiPostToken } from "../../api/axios";
 import TestFooter from "./TestPageFooter";
-import TestHeader from "./TestPageHeader";
+
 import { formatTime } from "./forrmatTime";
 import { snackbarEmitter } from "../../components/snackbar/CustomSnackBar";
-import { HeaderLogo } from "../Home/ImagesRender";
 
 function TestPage2() {
   const location = useLocation();
@@ -492,7 +491,6 @@ function TestPage2() {
   if (loading) {
     return (
       <>
-        <TestHeader />
         <Box
           sx={{
             height: "80vh",
@@ -510,7 +508,6 @@ function TestPage2() {
 
   return (
     <>
-      <TestHeader />
       <Container maxWidth="lg" sx={{ py: 4, px: { xs: 2, sm: 4 } }}>
         <Typography
           variant="h4"

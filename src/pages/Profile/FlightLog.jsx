@@ -89,107 +89,6 @@ const FlightLog = () => {
         Your Flight log.
       </Typography>
 
-      {/* Stats Section */}
-      {/* <Grid container spacing={3} mb={5}>
-        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-          <Card
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              border: theme.card.border,
-              backgroundColor: theme.card.bgcolor,
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography fontWeight={600} mb={1}>
-                Completed Test
-              </Typography>
-              <Typography fontSize={48} fontWeight={700} color="#EAB308">
-                {countResult?.completedTest}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ justifyContent: "center" }}>
-              <Button
-                sx={{
-                  textTransform: "none",
-                  color: "#EAB308",
-                  fontWeight: 600,
-                  mt: 1,
-                }}
-                size="small"
-                endIcon={<span>→</span>}
-                onClick={() => navigate("/flight-log-report")}
-              >
-                report
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-
-        <Grid size={{ xs: 12, sm: 6, md: 5, lg: 4 }}>
-          {/* <Card sx={{ p: {xs: 1, sm :3}, borderRadius: 3, }}> */}
-      {/* <Typography fontWeight={600} sx={{ mb: 2 }}>Performance</Typography> */}
-
-      {/* <Card
-            sx={{
-              p: { xs: 1, sm: 1 },
-              borderRadius: 3,
-              border: theme.card.border,
-              backgroundColor: theme.card.bgcolor,
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Typography fontWeight={600}>Test Performance</Typography>
-                <Select
-                  size="small"
-                  value={selectedPeriod}
-                  onChange={(e) => setSelectedPeriod(e.target.value)}
-                  sx={{ fontSize: 14 }}
-                >
-                  <MenuItem value="Weekly">Weekly</MenuItem>
-                  <MenuItem value="Monthly">Monthly</MenuItem>
-                </Select>
-              </Box>
-            </CardContent>
-            {countResult && (
-              <ReactSpeedometer
-                value={grade}
-                minValue={0}
-                maxValue={100}
-                segments={100}
-                segmentColors={["#EAB308", "#F8EFE2"]}
-                startColor="#EAB308"
-                endColor="#F8EFE2"
-                needleColor="#EAB308"
-                needleTransition="easeElastic"
-                needleHeightRatio={0.5}
-                ringWidth={15}
-                textColor={theme.card.textColor}
-                customSegmentStops={[0, grade, 100]}
-                currentValueText={`Your Grade: ${
-                  countResult?.grade ? countResult?.grade?.toFixed(2) : "0"
-                }%`}
-                height={180}
-                width={270}
-              />
-            )}
-            {/* <Typography variant="caption" color="text.secondary" mt={1}>
-                {`Your grade is ${countResult?.grade.toFixed(2)}%`}
-              </Typography> */}
-      {/* </Card> */}
-      {/* </Card> */}
-      {/* </Grid> */}
-      {/* </Grid>  */}
-
       <Grid container spacing={3} mb={5}>
         {/* Completed Test Card */}
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
@@ -265,7 +164,7 @@ const FlightLog = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              minHeight: 300, // ✅ same as above
+              minHeight: 300,
             }}
           >
             <CardContent sx={{ flexGrow: 1, width: "100%" }}>
@@ -320,14 +219,7 @@ const FlightLog = () => {
         Progress
       </Typography>
 
-      {/* <Box display="flex" justifyContent="flex-end" mb={1} gap={1}>
-                <IconButton size="small">
-                    <ArrowBackIos fontSize="small" />
-                </IconButton>
-                <IconButton size="small">
-                    <ArrowForwardIos fontSize="small" />
-                </IconButton>
-            </Box> */}
+     
 
       <Grid container spacing={3}>
         {userSyllabuses

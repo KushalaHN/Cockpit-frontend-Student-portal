@@ -225,44 +225,12 @@ const UserProfile = () => {
       <Grid container spacing={{ xs: 2, sm: 4 }}>
         <Grid size={{ xs: 12, sm: 6, md: 6 }}>
           <Box display="flex" alignItems="center" gap={2} mb={{ xs: 0, md: 2 }}>
-            {/* <Avatar sx={{ width: 56, height: 56 }} /> */}
-            {/* <Box position="relative" display="inline-block">
-              <Avatar
-                src={profileImage || "/default-profile.png"}
-                sx={{ width: 56, height: 56, cursor: "pointer" }}
-                onClick={() => document.getElementById("profile-image-input").click()}
-              />
-              <input
-                id="profile-image-input"
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                style={{ display: "none" }}
-              />
-            </Box> */}
             <Box>
               <Typography fontWeight="bold">{userData.username}</Typography>
               <Typography variant="body2" color="gray">
                 {userData.email}
               </Typography>
             </Box>
-          </Box>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6, md: 6 }}>
-          <Box display="flex" justifyContent="center">
-            <Button
-              sx={{
-                mb: { xs: 1, sm: 3 },
-                backgroundColor: "#EAB308",
-                textTransform: "none",
-                color: "#ffffff",
-                fontSize: "18px",
-              }}
-              variant="contained"
-              onClick={handleLogout}
-            >
-              Logout
-            </Button>
           </Box>
         </Grid>
       </Grid>
@@ -384,9 +352,13 @@ const UserProfile = () => {
                 </Grid>
 
                 <Grid
-                  size={{ xs: 12, md: 12 }}
+                  size={{ xs: 12 }}
                   display="flex"
                   justifyContent="center"
+                  flexDirection={{ xs: "column", md: "row" }}
+                  alignItems="center"
+                  gap={3}
+                  mt={3}
                 >
                   <CustomButton
                     onClick={handleSave}
@@ -394,66 +366,42 @@ const UserProfile = () => {
                     bgColor="#EAB308"
                     borderRadius="8px"
                     sx={{
-                      mt: 2,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      width: "fit-content",
-                      padding: "10px 20px",
+                      // mt: 2,
+                      // display: "flex",
+                      // justifyContent: "center",
+                      // alignItems: "center",
+                      // width: "fit-content",
+                      width: "160px !important",
+                      height: "45px",
+                      fontSize: "18px",
+                      borderRadius: "8px",
+                      padding: 0,
                     }}
                   >
                     Save
                   </CustomButton>
+
+                  <Button
+                    variant="contained"
+                    onClick={handleLogout}
+                    sx={{
+                      // mb: { xs: 1, sm: 3 },
+                      backgroundColor: "#EAB308",
+                      color: "#ffffff",
+                      textTransform: "none",
+                      width: "160px",
+                      height: "45px",
+                      fontSize: "18px",
+                      borderRadius: "8px",
+                      padding: 0,
+                    }}
+                  >
+                    Logout
+                  </Button>
                 </Grid>
               </Grid>
             </Box>
           </form>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Card
-            sx={{
-              backgroundColor: theme.footer.background.default,
-              color: "white",
-              borderRadius: 2,
-              margin: 5,
-              maxWidth: 400,
-              m: "auto",
-            }}
-          >
-            <CardContent>
-              <Typography
-                variant="h6"
-                align="center"
-                color="#EAB308"
-                gutterBottom
-              >
-                FLIGHT PLAN
-              </Typography>
-              <Divider sx={{ borderColor: "#F4D269", mb: 2 }} />
-              <Box display="flex" justifyContent="space-between" mt={2}>
-                <Typography variant="body2">SUBSCRIPTION</Typography>
-                {console.log(subscriptionInfo, "subscriptionInfo")}
-                <Typography variant="body2">
-                  {subscriptionInfo.subscription
-                    ? subscriptionInfo.subscription
-                    : "Free plan for 7 days"}
-                </Typography>
-              </Box>
-              <Divider sx={{ borderColor: "#575757", my: 1 }} />
-              <Box display="flex" justifyContent="space-between" mt={1} mb={2}>
-                <Typography variant="body2">RENEWAL</Typography>
-                <Typography variant="body2">
-                  {subscriptionInfo?.daysLeft ? subscriptionInfo.daysLeft : "7"}{" "}
-                  DAYS LEFT
-                </Typography>
-              </Box>
-              <Box display="flex" justifyContent="center">
-                {/* <Button variant="contained" sx={{ backgroundColor: "#EAB308" }} onClick={() => navigate("/pricing")}>
-                  Subscribe now
-                </Button> */}
-              </Box>
-            </CardContent>
-          </Card>
         </Grid>
       </Grid>
 
